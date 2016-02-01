@@ -1,0 +1,352 @@
+% Use the University of Michigan thesis class.
+\documentclass[thesis]{./tex/thesis-umich}
+
+% Title of the thesis
+\title{Lithium/Oxygen Batteries}
+
+% Author name
+\author{Lucas D. Griffith}
+
+% Department
+\department{Chemical Engineering}
+
+% Year of completion
+\year=2015
+
+% Frontispiece
+\frontispiece{\includegraphics[width=4in]{./pics/frontispiece.pdf}}
+
+% Default style for front pages
+\frontpagestyle{1}
+
+% Dedication
+\dedication{ %
+This document is dedicated to my parents, who taught me the value of an education.}
+
+% Acknowledgments
+\acknowledgments[6]{ %
+I gratefully acknowledge Alice Eleanor Silvia Sleightholme for her council on executing experimental work practically.}
+% This command sets the width of the acknowledgments area as a fraction
+% of the total width of the text area.
+\acknowledgmentswidth{0.8}
+
+% Preface
+\preface[2]{ %
+I need no preface}
+
+% Committee
+\committee{ %
+Professor Charles Monroe, chair \\
+Professor Donald Siegel, University of Michigan\\
+Professor Suljo Linic, University of Michigan\\
+Professor Michael Solomon, University of Michigan}
+
+% Chair must be entered separately for formatting reasons.
+\chair{Charles Monroe}
+
+% Commands to hide or show lists of figures, tables, etc.
+%\hidelistoftables
+\showlistofprograms
+\showlistofappendices
+
+% Definition of any abbreviations used.
+\abbreviations{
+\acro{RFB}{Redox Flow Battery}
+ \acro{XRD}{X-ray diffractometry}
+ \acro{SEM}{Scanning Electron Microscopy}
+}
+
+% Some abstract text
+\abstract{
+Transport, Batteries, good}
+%\hideabstractpagenumber
+
+%% DOCUMENT AREA
+\begin{document}
+\chapter{Introduction} \label{chap:intro}
+Electrochemical energy storage is a useful tool for a broad range of applications with scales of devices ranging from the hundreds of kilowatt-hours necessary for grid level storage to the tens of milliamp-hours used in commercial watch batteries, with some interesting research on even smaller devices.\cite{DuayJ2013} For every application there is a specific combination of chemistry, geometry, etc. that is optimal; for instance, energy storage designed for the power grid level can be large and heavy, as long as it lasts for many years, as opposed to energy storage designed for transportation, which needs to be light, small, and only needs to last as long as the rest of the car. Across all of these possible combinations, however, there is one common characteristic: current in the device is carried by ions whose transport is frequently dominated by diffusion. This is why understanding the physics of diffusion in electrochemical energy storage systems is so important. 
+
+\section{Grid Level Energy Storage}
+In the near future, batteries could be used to reduce the environmental impact of energy generation and distribution by reducing the usage of fossil fuels. Presently coal burning power plants provide most of the electricity in the US and the rest of the world. In principle, with the aid of energy storage, solar and wind power could eventually replace coal burning power plants for energy generation, however, by their very nature wind and solar energy are both intermittent, meaning that they will only be able to provide generation at certain times of day, and variable, meaning that while they are providing power, that power is not necessarily constant. This provides enormous challenges when trying to provide the precise synchronization of power generation and consumption necessary for the dependability of electrical power that society has come to expect and depend on. These challenges could be overcome by large scale energy storage. If the renewables plants were sized such that their generation exceeded consumption while they were active, the excess could be stored and used later when power was not being generated. Storage with a short time response could also be used to even out instantaneous disparities in power generation and consumption by either storing the excess or providing the dearth. In addition to being useful for integrating renewable energy sources, batteries could perform some similar tasks to increase the efficiency of power distribution from coal burning power plants. For instance, electricity demand usually peaks late in the afternoon. Currently the coal power plants adjust their generation throughout the day to match the average demand, however during these hours of peak demand, additional power plants burning natural gas are required. Properly designed energy storage systems could be used for this purpose, as well as the instantaneous matching of supply and demand. This is one of many examples of uses and synergies for large scale energy storage in the present power grid.%\cite{Sandia2012} 
+
+Presently the most promising technology for providing grid level energy storage is the \ac{RFB}. \ac{RFB}s are different from other batteries because they allow for the energy capacity and power of the battery to be controlled separately. In a typical battery, energy is stored through reactions that involve a change of phase for one or more of the ions in the system from the electrolytic solution to the solid electrode. For example, in lead-acid batteries, the sulfate goes from the solution into the electrodes on discharge, and then from the electrodes, back into the solution on charge. In such a system, the energy capacity is determined by the total amount of the limiting ion in the battery, and the power the battery is capable of delivering scales with the surface area of the electrodes. This is why energy capacity and power of these systems are necessarily coupled. In contrast, reactions in a \ac{RFB} occur all in the liquid phase. This means that the electrolytic solution can be pumped through a reactor, then stored in tanks. This allows the power of the battery to be controlled by the reactor design and the energy capacity of the battery to be controlled by the size of the storage tanks. While there are a number of interesting \ac{RFB} chemistries discussed in literature, the system in the most advanced stages of testing is the all-vanadium \ac{RFB} shown schematically in Figure \ref{RFBschem}.
+
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/RFBschem.pdf}
+ \end{center}
+ \caption{ \label{RFBschem}
+ Schematic diagram of an all-vanadium RFB and its discharge mechanism. Redox reactions at the electrodes (black) involve various vanadium species, which are dissolved in the catholyte (yellow) and anolyte (purple) liquids. An overall charge balance is maintained by transport of hydrogen ions across the ion-selective membrane (white).}
+\end{figure}
+ 
+ The all-vanadium \ac{RFB} works by shuffling vanadium between four stable oxidation states vanadium II and III at the negative electrode and vanadium IV and V at the positive electrode. During these changes, charge in the battery is balanced by transport of H$^+$ across the membrane. Ion selective membranes are usually used in all-vanadium \ac{RFB}s to allow facile transport of H$^+$ to minimize the internal resistance of the battery, while shutting down vanadium transport to maximize coulombic efficiency. All of the vanadium species have a high solubility in the acid electrolytic solution.cite\{\} The potential afforded by the vanadium reactions approaches the maximum voltage possible in aqueous solvents.  
+%\section{The case for grid level storage}
+%
+%application 1 electric energy time shift: used by plant, charge when price is low, discharge when price is high (could also serve as: 2. electric supply capacity, T&D upgrade deferral, transmission congestion relief, electric service reliability, electric service power quality, and ancillary
+%
+%application 2 Electric supply capacity replace peaker plant? (could also serve as 1. Electric supply reserve capacity, area regulation, voltage support, t&D upgrade deferral, transmission support and congestion relief, electric service power quality, and electric service reliability. 
+%
+%application 3 Load following (ancillary services) matching generation to consumption via charging or discharging for up following or down following (also useful for 1., renewables capacity firming, electric supply reserve capacities
+%
+%application 4 area regulation (ancillary services) damp out minute to minute differences in supply and demand (basically load following on a really short time scale) can't be used simultaneously for anything else... could be used instead for fucking anything else
+%
+%application 5 reserve capacity (ancillary service) equipment that can generate power that is off/ unloaded but can be used in case of outage of other stuff usu. 15-20\% total capacity (also useful for anything else if you don't need the reserve capacity atm)
+%
+%application 6 Voltage support offsets reactive (inductive/ capacitive) effects in the supply circuit by adjusting the voltage could be used for everything except 4. area regulation or transmission support
+%
+%application 7 transmission support pretty technical, working with controllers to make sure everything runs smoothly as far as I can tell... (not useful for anything else while it's working, but not as important during off peak hrs)
+%
+%application 8 transmission congestion relief basically providing energy downstream of big draws, so power can be available everywhere (pretty vague, so useful with lots of other things)
+%
+%application 9 transmission and distribution upgrade deferral get a battery instead of buying other transmission and distribution equipment... low risk investments (works well with pretty much everything else...)
+%
+%application 10 Substation on-site power replace lead acid batteries currently in use in sub stations i.e. need to be very reliable and long lived
+%
+%________________________________________________________________________________________________________________________
+%
+%application 11 time of use energy cost management same as energy time shift but for end users
+%
+%application 12 etc.
+%
+%application 15 renewables energy time shift wind makes power at off peak times use storage to supply energy when price is high and charge from turbines when price/demand is low
+%
+%application 16 renewables capacity firming smooth out variations in intermittent renewable energy generation 
+%
+%market potential describes how much energy usage a particular application would get
+%
+%benefits describe how much money per unit usage is expected
+%
+%both required to decide where most promise lies
+%
+%applications with maximum economic impact
+%for suppliers 1. load following 2. electric energy time shift 3. electric supply capacity >>4. voltage support
+%for consumers 1. time of use energy cost management >> 2. Renewables capacity firming (~load following)  3. Demand charge management 4. renewables energy time shift
+%
+
+\section{Transportation Energy Storage}
+
+~1/3 of energy consumption in US goes to transportation. Some of that goes into light vehicle propulsion. This uses petroleum. This energy usage could be reduced by using efficient battery powered electric vehicles in cars. Also the source of the energy could be shifted to more plentiful energy sources than petroleum. In the future renewable energy sources such as wind and solar could also be used to replace fossil fuel as an energy source altogether. 
+
+Presently the largest hurdles for battery powered electric vehicles are high cost of batteries and limited range due to low specific energy and energy density of the batteries. Even with significant improvement, the state of the art lithium-ion batteries used today will likely fall short of the requirements. For this reason we need a battery with higher specific energy. One promising technology is the lithium oxygen battery, shown schematically in Figure ref\{LiOschematic\} here's a schematic of a Li/O$_2$ battery. Even though the Li/O$2$ employs lithium to store charge like the lithium-ion battery, the positive electrode, electrolytic solution, and negative electrode are all different. 
+
+Ideally, the positive electrode consists of a metallic Li electrode instead of a lithiated carbon electrode. Lithium metal has a very high specific energy cite\{\} and facile electron exchange,cite\{\} making it a reasonable choice for a battery electrode material. Presently, it is not used in battery systems due to its tendency to form dendrites upon cycling.cite\{\} This problem could possibly be solved by employing a solid separator with sufficient hardness to suppress dendrite growth. cite\{\} In absence of a solution to this problem any lithium ion source, e.g. lithiated carbon or silicon, could serve as the positive electrode. Lithium metal positive electrodes are still a very active field of research.
+
+Given their established ability to dissolve lithium, and stability at the relevant potentials, the carbonate solvents were used in early Li/O$2$ batteries, however, these batteries suffered from extremely limited cyclability \(only achieving ~10 cycles\).cite\{\} It was established that the carbonate solvents were not stable when oxygen was introduced into the electrolytic solution.cite\{\} Dimethoxyethane \(DME\) was highlighted as a promising candidate for Li/O$2$ solvent due to it's high oxygen solubility,cite\{\} and shown to be more stable.cite\{McCloskey\} Also since oxygen must move through the electrolytic solution, solubility and diffusivity of oxygen become critical for the rate performance of the battery.cite\{\}
+
+Compared to the positive electrode and electrolytic solution, there are more differences between a lithium ion battery negative electrode and a Li/O$_2$ negative electrode. As opposed to the lithium-ion battery, the negative electrode doesn't directly participate in the chemistry of the battery, but rather serves as a site for the reduction of oxygen to form lithium peroxide, Li$2$O$2$. Li$_2$O$_2$ is not soluble in any of the solvents studied for Li/O$_2$ batteries, however, so it is deposited as a solid at the cathode. This poses a challenge in the design of the Li/O$_2$ battery, because Li$_2$O$_2$ is electrically insulating in the bulk. This means that large, uniform deposits of Li$_2$O$_2$ will prevent transport of electrons in the battery, shutting it down. There have been large deposits of Li$_2$O$_2$ formed in Li/O$_2$ batteries however, which has lead to theories about how charge could transport along the surface of, through grain boundaries in, or through defects in Li$_2$O$_2$. There are also proposed reaction mechanisms that attempt to explain large Li$_2$O$_2$ deposits via a mechanism involving a mobile charged oxygen intermediate.  This is part of the reason there has been a lot of work on adding catalysts for the reduction and oxidation of oxygen to the negative electrode. 
+
+\section{Physics of Mass transport}
+
+The simplest model for diffusion is Fick's Law, which shows the flux of a dilute diffusing species $N_i$ moving through a stationary solvent is proportional to a gradient in the concentration of that species $c_i$ through the diffusion coefficient $D$ 
+\equation
+N_i=D \nabla c_i
+\endequation
+Fick's Law works best in dilute solutions, however, to achieve high conductivity of the electrolytic solution, high concentrations of salt are often used. Also, there is frequently more than one diffusing species in the electrolytic solution. These situations can be understood better by using the Stefan-Maxwell model for diffusion. The Stefan-Maxwell equations show the relative velocity $v_{i}$ of a single species in a solution is driven by a gradient in the chemical potential of that species $\mu_i$ and hindered by frictional forces from every other species in the solution $k_{ij}$.
+\equation
+c_{i}\nabla{\mu_{i}}=\frac{RT}{c_\text{T}}\sum_{j \neq i}{K{ij}\left( v_{i}-v_{j} \right)}
+\endequation
+The coefficient of friction depends on the concentration of each species $c_i$, the total concentration of the solution $c_{\text{T}}$, the universal gas constant $R$, and the temperature $T$.
+\equation
+K_{ij}=\frac{RTc_{i}c_{j}}{c_{\text{T}}}
+\endequation
+This has proven to be a very accurate and effective model for describing the diffusion of species in multi-component solutions.
+
+concentrated solution theory, maybe value of continuum modeling?
+
+
+\chapter{Experimental Methods} \label{chap:Exp}
+
+\section{Materials}
+
+Electrolytic solutions were prepared by dissolving lithium bis-(triflouromethanesulfonyl)imide (99.95\%, Sigma-Aldrich, USA) to 1 M concentration in dimethoxyethane (DME, 99.5\% anhydrous, Sigma-Aldrich, USA), which was dried over 4 Å molecular sieves (Fisher Scientific, USA).  Each electrochemical cell employed a 0.75 mm thick, 18 mm diameter Li disk negative electrode (99.9\%, Alfa Aesar, USA), a 0.55 mm thick, 18 mm diameter glass-fiber separator (EL-CELL GmbH, Germany), and an 18 mm diameter porous-carbon positive electrode (SIGRACET GDL 24 BC, Ion Power, Inc., USA). Both electrodes were cut from larger sheets of material using a steel punch. The average positive-electrode mass was 0.0265 g; its porosity, 0.8 (as per supplier); its thickness, 235$\pm$20 $\mu$m (as per supplier); and its specific surface area, 13.3$\pm$0.2 m$^2$g$^{-1}$ (measured by N2 physisorption with a Micromeritics ASAP 2010 analyzer employing the Brunauer-Emmett-Teller isotherm). Positive electrodes and separators were dried under vacuum at 110$^\circ$C for 12 h to remove residual water.
+
+\section{Binary Diffusion in a Batch Dialysis Cell}
+Solutions of vanadyl sulfate (99.9\% metals basis Alfa Aesar, US) and sulfuric acid (99.999\% Sigma-Aldrich) were prepared densitometrically using a XX densitometer (XX) and density vs. mass fraction correlations determined by Tian-Hong Hou %\cite{?} 
+and data available in the CRC handbook \cite{CRC} respectfully. The conductivity of solutions of vanadyl sulfate \cite{?} and sulfuric acid was measured with an InLab 731 conductivity probe coupled with a Seven-Multi conductivity meter (Mettler Toledo, US), at various temperatures which were set using a XX water bath. The variation in equivalent conductance with square root concentration was fit with the following relation suggested by  Debeye-Huckel theory
+
+\equation
+\Lambda=\frac{\kappa}{n_{+}z_{+}c}=\Lambda_0\left(1-\frac{\Lambda_1\sqrt{\frac{c}{c_ref}}}{1+\Lambda_2\sqrt{\frac{c}{c_ref}}}\right)
+\endequation
+
+where $\kappa$ is the conductivity in mS/cm, n$_{+}$ is the number of cations in a unit of the salt, $z_{+}$ is the charge of the cation, $c$ is the concentration of the salt, $c_{ref}$ is a reference concentration and $\Lambda_0$, $\Lambda_1$, and $\Lambda_2$ are fitting parameters. 
+Measurements of binary diffusion coefficients for vanadyl sulfate and sulfuric acid diffusing through either Nafion 117 or Celgard 3701 were performed in a batch dialysis diffusion cell. Two vertical 15mm inner diameter glass tubes with similar diameter tubes in the sides fabricated by a master glass-blower, joined by gaskets XX in. thick with XX in. openings in the middle, clamped externally with a teflon block and four screws comprised the H-cell used for conducting batch dialysis diffusion measurements. The 10 mL liquid volumes in each side were separated by a membrane placed in the center of the two gaskets and were stirred using teflon coated magnetic stir bars (Fisher Scientific, US) driven by a stirring hotplate (Fisher Scientific, US). Concentrations of 0.1 M vanadyl sulfate or sulfuric acid were placed on one side of the membrane and allowed to diffuse into 18 megohm ultra pure water on the other side of the membrane. Concentration of the diffusing species in the initially unloaded side of the batch dialysis cell was tracked using an InLab 731 conductivity probe coupled with a Seven-Multi conductivity meter (Mettler Toledo, US). 
+
+\section{Electrochemical cell cleaning}
+
+After tests were completed and any cell components of interest were harvested, the cells were disassembled, and placed in 250 mL beakers with 2 cells per beaker. The cells were then cleaned by sonicating in detergent, acetone, and ultra pure water sequentially, with several ultra pure water rinses in between different cleaning solutions. After this cells were stored in an oven at 80 $\circ C$ for at least 12 hrs. 
+
+\section{Electrochemical cell assembly}
+
+ECC-AIR metal-oxygen electrochemical test cells were purchased from EL-CELL GmbH (Germany). Cells were assembled in an Omnilab glove box (Vacuum Atmospheres, USA) with an Ar atmosphere (99.998\%, Cryogenic Gases, USA) containing less than 1 ppm O$_2$ and less than 1 ppm H$_2$O. To prepare cells for discharge experiments, the vacuum-dried glass-fiber separator and positive electrode were soaked in the electrolytic solution for ~1 min, after which the positive electrode was sandwiched between the separator and a perforated stainless-steel current collector. The wetted, stacked assembly was then slid into a cylindrical polyether ether ketone (PEEK) sleeve, leaving the soaked glass-fiber surface exposed. The Li foil was subsequently placed onto the glass-fiber surface, after which the entire assembly within the PEEK sleeve was inserted into a stainless-steel cell base, which acted as the current collector for the negative electrode. The base was then sealed using an electrically isolated stainless-steel cap containing a spring-loaded, hollow piston that applied reproducible pressure on the stacked assembly; the spring was gold, also providing electrical contact with the positive current collector. The opening in the piston allowed distribution of gases to the positive electrode through the perforated plate. 
+
+\section{Electrochemical cell gas manifold connections}
+
+Oxygen was supplied to the cells using a steel gas manifold. The gas manifold had 6 swagelok connections, which could supply either oxygen or argon to the cells and collect any exhaust gas from the cells, pass it through a bubbler, and carry it to the fume hood. Each cell was equipped with a three way valve on the supply line and a two way valve on the exhaust line. Once cells were connected to the gas manifold, the three way valve on the cells was used to purge the gas in the manifold lines through to the exhaust, removing any impurities that may have accumulated while the gas was stagnant. During the purge the pressure of the supply gas was set to 1 bar, and gas was allowed to flow for about 10 min. After the lines were purged, the argon atmosphere from the glove box in the cells was exchanged for an oxygen atmosphere by switching the three way valve to allow oxygen to enter the cell, opening the exhaust valve, and allowing the oxygen to flow through the cell for about 1 min. The exhaust valve was then sealed so the pressure in the cell could be set using the pressure regulator. 
+
+
+To initiate each test, a Series 4000 battery tester (Maccor, USA) was used to hold the assembled, sealed cell at open circuit until the rate of voltage change was observed to fall below 2 mVh$^{-1}$. Throughout the test a series HP702 pressure regulator (Harris Specialty Gas, USA) was used to maintain the pressure of stagnant O$_2$ gas (99.993\%, Cryogenic Gases, USA) at 1 bar gauge. Once the test was completed, cells were purged with Ar gas, sealed and transferred to the glovebox for removal of the positive electrode.%After the initial equilibration period (typically about 12 h), cells were discharged at constant current densities of 0.1, 0.2, 0.5, or 1.0 mAcm$^{-2}$ (superficial) until the voltage reached a lower cutoff of 2.0 V. Every cell was purged with Ar gas and sealed immediately after first discharge. (Control experiments were also run, by holding assembled cells at zero current under 1 bar gauge O2 pressure for 24 h.)
+
+\section{Ex Situ Characterization}
+
+After discharge/charge testing was complete, cells were disassembled in the glove box. Positve electrodes were removed and rinsed with ~10 mL of sieved DME, after which they were dried at room temperature under vacuum in the glove box antechamber for 20 min and returned to the main chamber. After removal, each electrode was sectioned into eight smaller samples for XRD and SEM using steel scissors. 
+
+XRD samples were prepared in the glove box by placing sections of the discharged electrodes in an airtight sample holder with a Be window (2455-SH-001, Rigaku, Japan). Diffraction patterns were gathered by a Rotaflex (40 kV, 100 mA) diffractometer (Rigaku, Japan) with a Cu source, using continuous scan at 0.75$^{\circ}$ min$^{-1}$ in 2$\theta$ mode. 
+
+SEM samples were prepared in the glove box and transferred to the microscope chamber using an airtight holder designed and fabricated in house, to prevent exposure of samples to ambient air prior to micrograph acquisition. The sample holder comprised a ‘clamshell’ design with a hinged Al cap atop a hollow Al cylindrical base that also served as a pin stub. After samples were anchored on double-sided Cu tape inside the hollow cylindrical cavity, the cap was wedged tightly in contact with an o-ring on the lip of the base by a u-shaped Be/Cu-alloy spring clamp attached in opposition to the hinge. For transfer to the SEM facility, the clamped sample holder was placed inside an airtight storage container in the glove box. Once removed from the glove box and transported to the microscope, the container was opened and the clamped sample holder was placed inside the SEM chamber. The spring clamp was affixed to an interior wall of the chamber with a taut wire, allowing it to be removed by translation of the sample stage after the chamber was closed and vacuum was drawn. The hinged cap was also affixed to an interior wall of the chamber with a second wire. After removal of the clamp, 180˚ rotation of the stage allowed the hinged cap to be opened, revealing the sample. Schematic diagrams of the sample holder and spring clamp are shown in Figure \ref{semholderschem}. SEM was performed with a FEI Nova NanoLab microscope (5 kV accelerating voltage, 98 pA). SEM images were gathered using a 50 ns acquisition time and integrating 64 frames. Particle dimensions were analyzed with SPIP software.
+
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/SEMschematic.png}
+ \end{center}
+ \caption{ \label{semholderschem}
+Airtight SEM sample holder schematics. Left: side view (of central cross section); Right: top view. The black portion represents the Be/Cu-alloy spring clamp.}
+\end{figure}
+
+
+\chapter{Mass Transport in Membranes for Redox flow batteries} \label{chap:RFBs}
+I'll write this soon too.
+
+\chapter{Rate Performance of Lithium/Oxygen Batteries} \label{Rate}
+\section{Introduction}
+
+Limited range and high cost currently prevent the widespread implementation of battery-electric vehicles.\cite{Wagner2010} Both of these challenges could be addressed by realizing an efficient, cyclable lithium/oxygen (Li/O$_{2}$) battery. For automotive applications, the high theoretical specific energy of Li/O$_{2}$ chemistry makes it attractive as a possible alternative to lithium-ion chemistries.\cite{Christensen2012,Girishkumar2010} 
+
+Although relatively high cell capacities have been obtained on the laboratory scale,\cite{LuY2013} a number of significant barriers, including short cycle life and low charging efficiency, must be overcome for Li/O$_{2}$ battery technology to become practical.\cite{Christensen2012} Addressing such challenges demands a deeper understanding of the energy storage and retrieval mechanisms in the porous positive electrode. This investigation aims to shed light on the operating mechanisms of non-aqueous Li/O$_{2}$ cells, by examining how cell capacity and discharge-product morphology depend on the discharge rate. 
+
+Non-aqueous Li/O$_{2}$ cells ideally discharge by the reduction of oxygen to form an oxygenated lithium species at the positive electrode,\cite{Abraham1996} which substantial literature confirms is mostly lithium peroxide (Li$_{2}$O$_{2}$).\cite{McCloskey2011,Peng2011,Adams2013a,Gallant2013,Leskes2013} During an ideal recharge process, the Li$_{2}$O$_{2}$ should decompose electrochemically, returning lithium and oxygen to their original states. Even when taking the masses of the electrode substrate and the oxygen added to the peroxide into account, Li/O$_2$ cells exhibit theoretical specific energies 3-5 times greater than conventional lithium-ion cells.\cite{LuY2013} This benefit owes both to the exchange of intercalation-compound-laden positive electrodes for lighter gas-diffusion electrodes, and to the replacement of the graphite negative electrode with energy-dense metallic Li. 
+
+There are many reports of discharged Li/O$_2$ cells whose positive electrodes contain electrodeposited Li$_2$O$_2$ particles with a ‘toroid’-like morphology; the toroids typically have characteristic dimensions of the order of 100 nm.\cite{Mitchell2011,DXu2012,Adams2013a,XuJ2013,Gallant2013,XiaC2014evo} Since Li$_2$O$_2$ is a bulk insulator that in principle should prevent electrons from traveling such distances,\cite{Radin2013} the observations suggest that unconventional electron-transport pathways or diffusion of intermediates may play roles in the discharge process. For example, mechanisms by which charge could travel through amorphous Li$_2$O$_2$\cite{TianF2014} or across crystalline Li$_2$O$_2$ via its surface,\cite{Radin2011} grain boundaries,\cite{GengW2013} or defects in its bulk\cite{Radin2013} have been proposed. Studies also show that the morphology of Li$_2$O$_2$ deposited on a porous-carbon positive electrode can change when additives are incorporated.\cite{XuJ2013,YilmazE2013} Adams et al. provided a detailed set of hypotheses to rationalize how discharge-product morphology depends on discharge rate.\cite{Adams2013a} They observed that the Li$_2$O$_2$ morphology transitioned from toroids to a compact film as the discharge-current density increased; they also noted that capacity remained relatively stable until a critical rate was reached, above which the capacity substantially deteriorated.
+
+Although a few studies highlight challenges related to the rate performance of Li/O$_2$ cells and cell design, research in this direction has received relatively little attention.\cite{LuY2013} For example, Adams et al.\cite{Adams2013} fabricated a bipolar-plate battery design aimed at meeting various goals set by the U.S. Advanced Battery Consortium;\cite{USABCGoals} their testing, which explored discharge currents up to 4 mAcm$^{-2}$ (per superficial electrode area), suggests that current densities of the order of 1 mAcm$^{-2}$ could be required in practice. Lu et al. fabricated extremely thin electrodes, with the aims of mitigating mass-transport limitations and allowing higher current densities.\cite{LuY2011rate} They discharged their cells at up to 0.76 mAcm$^{-2}$ superficial positive-electrode area. Jung et al. achieved one hundred cycles at rates of $\pm$1 mAcm$^{-2}$ by limiting the depth of discharge, and also demonstrated comparable capacity at $\pm$3 mAcm$^{-2}$.\cite{JungH2012} 
+
+A viable vehicular battery must retain its performance at higher rates. Consequently, more work is needed to understand the properties of Li/O$_2$ batteries operated at high current densities. In addition to the aforementioned effects on capacity and Li$_2$O$_2$ morphology, there is evidence that higher rates of discharge result in lower overpotentials during recharging.\cite{Adams2013a,Gallant2013} Hence discharge rate may ultimately control not only the capacity, but also the round-trip efficiency of a Li/O$_2$ battery. This paper explores the capacity of Li/O$_2$ cells and morphology of Li$_2$O$_2$ at the end of first discharge in the practically significant 0.1 to 1 mAcm$^{-2}$ superficial current-density range. Cell capacity is found to fall with a power-law dependence on current across these rates. Understanding this response, which can be associated with a Peukert’s-law\cite{Peukert1897} exponent of 1.6$\pm$0.1, could aid the engineering of cells with better rate performance.
+
+More than 60 separate first-discharge experiments were performed across four rates. Electrodes exhibiting near-average capacity at a given rate were characterized using X-ray diffractometry (XRD) and scanning electron microscopy (SEM). Air-free sample-transfer techniques were used to implement XRD of representative electrodes, minimizing any changes to the discharge-product morphology incurred by air exposure. A novel sample-transfer technique was developed for SEM that allows air-tight argon-filled sample holders to be opened inside the microscope chamber after vacuum is drawn. Micrographs from representative cells are used to develop quantitative measures of how the sizes and shapes of deposited Li$_2$O$_2$ particles vary with control conditions. 
+
+The observed power-law dependence of discharge capacity on discharge rate is consistent with a macroscopic oxygen-transport limitation that lowers utilization of the porous positive electrode. Particle volumes are also found to fall dramatically with rate, and their surface-to-volume ratios rise correspondingly. Thus Li$_2$O$_2$ appears to be produced by a nucleation-and-growth process over the range of currents studied, supporting the notion that particle growth is transport-limited on a microscopic scale, as well as on a macroscopic scale.\cite{Jung2012} Particle shapes could be determined by voltage-dependent surface energetics, consistent with a deposition mechanism involving direct charge transfer. Alternatively, the particle-growth process could be mediated by chemical precipitation of a neutral reaction intermediate, whose local supersaturation in the liquid rises with discharge rate.
+	
+\section{Experimental}
+	
+\section{Results}
+\subsection{First-discharge capacity vs. Rate}
+
+More than 60 independent cells were assembled and discharged at four rates to establish the average capacity. Over the course of data collection approximately two out of every three assembled cells discharged successfully (there were a total of 42 successful first discharges). For each discharge rate, a successful discharge was defined by: monotonically decreasing potential for the entire discharge period; clear ‘sudden death’ of voltage at the end of discharge (i.e., a cell-voltage vs. capacity slope within two standard deviations of the mean for that rate at the cutoff voltage); and a first-discharge capacity within two standard deviations of the mean for that rate. Figure \ref{dischcurves} shows the potential vs. capacity curves for all successful discharges at each discharge rate studied. 
+
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/dischn1short_myriad.pdf}
+ \end{center}
+ \caption{ \label{dischcurves}
+ Dependence of potential on capacity (per superficial area) for lithium-oxygen cells discharged at 1.0, 0.5, 0.2, and 0.1 mAcm$^{-2}$. Vertical solid lines show the average discharge capacity; vertical dashed lines indicate its standard deviation. The black curves correspond to the discharges of cells used for SEM and XRD.}
+\end{figure}
+
+Averages and standard deviations of the first-discharge capacities are shown in vertical solid and vertical dashed lines respectively. The figure shows eight successful discharges at 0.1 mAcm$^{-2}$, twelve at 0.2 mAcm$^{-2}$, thirteen at 0.5 mAcm$^{-2}$, and nine at 1 mAcm$^{-2}$. Significant statistical variation was observed in both the first-discharge capacity and overpotential. Figure \ref{tafel} shows the cell potential at 50\% depth of discharge (DOD) vs. discharge rate for all successful discharges, along with the averages and standard deviations of the cell potentials at 50\% DOD. Following an analysis similar to that of Viswanathan et al.,\cite{Viswanathan2013} these yield a Tafel slope of 11$\pm$1 V$^{-1}$ and an exchange-current density of 7$\pm$3 $\mu$A cm$^{-2}$ (superficial).
+
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/Figure2Myriad.pdf}
+ \end{center}
+ \caption{ \label{tafel}
+Cell potential at 50\% depth-of-discharge with respect to rate. Diamonds show the mean potential, and error bars, one standard deviation.}
+\end{figure}
+
+As far as we know, no prior reports have quantified the inherent random variability of Li$_2$O$_2$ cells. The stochastic variation is measured by the standard deviation of capacity and mid-discharge cell potential, which both vary increasingly as the discharge rate rises. Large mean overpotentials could arise from sluggish reaction kinetics\cite{LuY2011} or oxygen-diffusion limitations;\cite{Read2003} the extent of variation in the overpotential could owe to the inherent variability of pore-surface area in the electrodes.
+
+Peukert’s law is a well-known empirical expression that describes the relationship between a battery cell’s discharge current and discharge duration as a power law.\cite{Peukert1897} In the present context it is convenient to express Peukert’s law in terms of the areal capacity qtotal (superficial basis) and the superficial discharge-current density i, as
+\equation
+	\ln\left(\frac{q_{\text{total}}}{1\text{ mAhcm$^{-2}$}}\right)=\left(1-k\right)\ln\left(\frac{i}{i_{\text{ref}}}\right)
+\endequation
+where $k$ is the Peukert exponent and $i_{\text{ref}}$ is an empirically evaluated reference current density. If the full capacity of a battery system were available at all discharge rates, its Peukert exponent would be 1. The second law of thermodynamics requires that $k>1$; the specific exponent observed for a given cell chemistry and geometry is commonly acknowledged to arise from the combination of dissipative processes that limits capacity (ohmic loss, mass-transport limitations, kinetic resistances, etc.).\cite{Baert1999} Peukert’s law fits the observed rate dependence of capacity in some current ranges for lead/acid and lithium-ion batteries.\cite{Peukert1897,Gillibrand1963,Omar2010,Dubarry2011} The lead/acid system, which may be most comparable to Li/O$_2$ because it also operates by a precipitation-dissolution mechanism, satisfies Peukert’s law well over a broad current range, with an exponent of 1.4.\cite{Gillibrand1963}
+
+Figure \ref{peukert} presents the areal discharge capacities with respect to discharge rate for the successfully discharged Li/O$_2$ cells. The capacities observed during the Li/O$_2$-cell discharges follow a power-law dependence on the discharge current, yielding a Peukert exponent of 1.6$\pm$0.1 and reference current density of 1.7$\pm$0.5 mAcm$^{-2}$.
+
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/Figure3Myriad.pdf}
+ \end{center}
+ \caption{ \label{peukert}
+ Capacity falls as a power law with respect to discharge rate. Capacity per geometric electrode area achieved at the 2 V cutoff potential as a function of discharge-current density on a geometric-area basis. Diamonds show the average discharge capacity, and error bars show one standard deviation}
+\end{figure}
+
+\subsection{Discharge-product identification}
+
+XRD spectra from representative positive electrodes at each discharge rate are shown in Figure \ref{xrd}. Since variability in capacity could arise from side reactions or poor selectivity for Li2O2, XRD was used to confirm the presence of the Li2O2 discharge product. (Note that because XRD can only identify crystalline phases, any amorphous compounds would not be detected.) Although past studies have identified products from side reactions with the solvent,6 lithium salt,33 and positive electrode,34 the only consistently apparent diffraction peak unique to the electrodes studied here corresponds to crystalline Li2O2. Evidence of trace crystalline LiOH, which manifests as an apparent small second peak adjacent to the Li2O2 (100) peak, was seen in some cases; in Figure \ref{xrd}, for example, trace LiOH affects the spectrum of the electrode discharged at 0.5 mAcm–2. In every XRD spectrum, the height of the peak corresponding to the Li2O2 (100) plane is slightly larger relative to the (101) peak than would be expected for large crystallites of pure Li2O2. The broadening of the peaks associated with Li2O2 suggests a crystallite size of about 20 nm, which was constant across all rates. No signal for crystalline Li2CO3 or Li2O was observed in any XRD sample.
+	
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/Figure4myriad.pdf}
+ \end{center}
+ \caption{ \label{xrd}
+Diffraction spectra of representative positive electrodes at all four discharge rates exhibit peaks that correspond to the (100) and (101) reflections of Li$_2$O$_2$.}
+\end{figure}
+	
+\subsection{Discharge-product morphology}
+
+In hopes of isolating the effect of applied current on discharge-product morphology, microscopy was performed on electrodes from cells exhibiting near-average capacity at each of the discharge rates. Figure \ref{sem} shows SEM images of Li$_2$O$_2$ particles gathered at end-of-discharge from representative cells at each of the discharge rates, whose corresponding discharge curves are highlighted in Figure \ref{dischcurves}. During all measurements, the SEM beam was destructive to the Li$_2$O$_2$; owing to their smaller sizes, the Li$_2$O$_2$ particles deposited at higher rates were destroyed more quickly. Degradation of the Li$_2$O$_2$ particles during imaging was mitigated by using relatively fast scan rates and integrating over 64 scans, as described previously.
+
+In general, the micrographs in Figure \ref{sem} show that the Li$_2$O$_2$ deposits take ‘disk-like’ cylindrical shapes at the lower rates, while ‘needle-like’ particles form at the highest rate. Note that the characteristic Li$_2$O$_2$ discharge-product shape observed at low rates is often referred to in the literature as ‘toroidal,’ as mentioned in the Introduction.\cite{Adams2013,XuJ2013,Gallant2013,DXu2012,Mitchell2011} The shapes observed in the present work were consistent with those seen by other researchers, but the larger particles are referred to as ‘disks’ or ‘cylinders’ here because 1) none of the particles was observed to contain a central void space and 2) asserting that particles are ‘toroids’ could imply a particular particle-growth mechanism in which nucleation progresses to propagation via a ring-shaped primary structure, rather than via a linear (needle- shaped) or hemispherical primary structure. At the lowest rate, 0.1 mAcm$^{-2}$, the axial dimension of the Li$_2$O$_2$ disks is largest. At the two lowest rates, 0.1 and 0.2 mAcm$^{-2}$, parallel stria spaced by about 20 nm can be discerned on the curved faces of the particles. As the rate increases from 0.1 to 0.5 mAcm$^{-2}$, the particle heights decrease, while their radii stay relatively constant – the aspect ratio rises with current. The height and radius trends reverse for the particles formed at 1 mAcm$^{-2}$; if these particles are considered to be cylindrical rods as well, then the typical aspect ratio is dramatically smaller than the aspect ratios at lower currents due to the qualitative change in shape. 
+
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/Figure6_mid_myriad.png}
+ \end{center}
+ \caption{ \label{sem}
+Scanning electron micrographs of Li$_2$O$_2$ formed at various discharge rates (100,000$\times$ magnification). The inset at the bottom right of each image shows a control electrode at similar magnification.}
+\end{figure}
+
+SPIP image-analysis software was used to determine average dimensions of the Li$_2$O$_2$ particles formed at each discharge rate. Multiple SEM images were processed to identify at least 25 particles from each carbon electrode at each discharge rate, for which average cylinder heights and diameters were recorded. Table 1 reports the diameter, height, surface-to-volume ratio, and number of particles (estimated using the density of crystalline Li$_2$O$_2$\cite{CRC}) alongside the total product volume formed (estimated based on mean particle size) and capacity at each rate. Although diameters of the disk-like particles appear to be roughly constant within error across the three slowest discharges, their heights vary with more significance.
+
+Figure \ref{partschematic} shows how the discharge-product-particle volume, total number of particles, and particle surface-to-volume ratio vary with discharge rate, as well as providing schematic illustrations of the mean particle shapes, with relative sizes to scale. Estimates of the total numbers of particles based on the mean capacity and mean particle size correlate well with estimates of the total number of particles on the electrode surface computed using a direct measurement of particle surface density, suggesting that the structures seen on the surface likely contribute to the total capacity of the discharged cell. The total number of particles appears to rise super-exponentially as the discharge rate increases.
+
+\begin{figure}
+ \begin{center}
+  \includegraphics[scale=1]{./pics/Figure6.png}
+ \end{center}
+ \caption{ \label{partschematic}
+Particles decrease in volume, but increase in surface area and number as rate increases. A) Li$_2$O$_2$ particle volume and estimated total number of Li$_2$O$_2$ particles as functions of discharge rate. B) Surface-to-volume ratio of discharge-product particles as a function of discharge rate. C) Schematics of Li$_2$O$_2$ disks and needles with mean proportions drawn to scale, shown above SEM images for comparison.}
+\end{figure}
+
+\section{Discussion}
+
+Significant attention has been given to possible kinetic limitations of Li$_2$O$_2$ formation and ways to address them.\cite{Debart2007,LuY2011,McCloskey2011cat,McCloskey2012b} The present electrochemical and morphology measurements suggest several factors besides reaction kinetics that could limit the performance of Li/O$_2$ cells, however. Performance limitations could owe in part to diffusive processes: although the importance of oxygen solubility and diffusivity in the liquid electrolyte has been recognized,\cite{Read2003} few efforts have been made to correlate these parameters with observed overpotentials and capacities in battery cells. Discharge-product morphology could also limit performance: a lowering of cell potential (i.e., an increase in apparent overpotential) could be associated with the surface-energy change incurred by creating Li$_2$O$_2$/electrolytic-solution and Li$_2$O$_2$/electrode interfacial areas at the expense of electrolytic-solution/electrode interfacial area. \cite{Diggle,Monroe2004}
+
+Since the primary advantage of the Li/O$_2$ chemistry over Li-ion chemistry is its high specific energy, it is important that much of the capacity of the battery be available in response to all practical current demands. Figure \ref{peukert} shows that the available capacity of the battery falls faster with rate than it does in other typical precipitation/dissolution battery systems, posing a design problem that merits close study: indeed, the Li/O$_2$ Peukert exponent of 1.6±0.1 is even greater than the exponent of 1.4 for lead/acid cells,\cite{Gillibrand1963} whose poor rate performance is well known. Substantial transport limitations associated with oxygen could partially explain the rapid decrease in capacity with increasing current density in Li/O$_2$ cells. Since the cell reaction consumes molecular O2, the rate of reaction in the porous positive electrode, determined by the current density, should 
+always be balanced by the rate of oxygen diffusion through the pore-filling electrolyte. This diffusion rate is proportional to the oxygen permeability (the product of saturated O2 concentration and effective O2 diffusivity).
+
+Since oxygen is more readily available near the gas reservoir, discharge-product formation should run to completion there first. Dissolved O2 must subsequently diffuse through this Li$_2$O$_2$-saturated domain at the rate demanded by the applied current. Given the extremely low O2 solubility of DME,\cite{Read2003} and in light of typical O2 diffusivities, the flux demanded by the discharge current can drive the O2 concentration to vanish within a distance far smaller than the positive-electrode thickness.\cite{LuY2011rate} ‘Sudden death’ of voltage then occurs when the O2 flux across the Li$_2$O$_2$-saturated domain cannot maintain the current density. Under the assumption that the capacity of the battery will be proportional to the distance that O2 can penetrate into the positive electrode, the capacity would be expected to fall as a function of current with a Peukert exponent of 2, sufficiently close to the observed value of 1.6±0.1 to suggest that macroscopic O2 transport contributes to rate limitations.
+
+Higher-order corrections owing to the discharge-product morphology could explain the fact that the observed Peukert exponent is somewhat smaller than 2. Under the hypothesis that O2 transport plays a role in limiting discharge capacity, deviations from a Peukert exponent of 2 can be attributed to local changes in the O2 permeability. Since the saturated O2 concentration is a thermodynamic quantity, it is by definition rate-independent; thus, to rationalize the data, the effective O2 diffusivity must be increasing somewhat with rate, even as the O2 penetration depth is falling. Such an affect can be explained by observing that the effective diffusivity involves the electrode porosity and tortuosity. The SEM images show that the mean size of the Li$_2$O$_2$ particles at the lowest rate is comparable to the approximate size of the pores in the electrode (~350 nm). Therefore at low rates, the effective O2 diffusivity is decreased due to the lower porosity and much greater tortuosity of the diffusion path that O2 must travel to reach un-utilized pore volume deeper within the electrode. At the highest rate, the needle-like deposits have a volume that is two to three orders of magnitude less than the disks. These needles occlude far less of the native pore structure of the carbon electrode, leading O2 to have a higher effective diffusivity. This may explain why the Peukert exponent is dampened from the extreme value of 2.
+
+To target better rate performance, the solubility and the effective diffusivity of oxygen in the positive electrode should be made as large as possible. A simple way to raise the oxygen solubility would be to raise the partial pressure of oxygen in the gas phase. McCloskey et al. show that this slightly reduces the overpotential for Li$_2$O$_2$ deposition, but do not discuss the effect of a pressure increase on capacity in great detail.\cite{McCloskey2012b} Nemanick et al. show that at a given discharge rate, the capacity increases with increasing pressure.\cite{NemanickJ2014}
+
+The observed morphology differences among Li$_2$O$_2$ particles formed at different discharge rates raise more fundamental questions about the connection between the discharge mechanism of Li/O$_2$ cells and the cell voltage. Due to the nanoscale-particulate nature of the discharge products that form in the porous electrode, a large surface-area change is incurred during discharge. The free energy needed to produce this large area could come at the expense of the potential delivered by the cell, reducing energy efficiency. SEM images reported here and elsewhere\cite{LuY2011rate,Mitchell2011,Adams2013a,Gallant2013} suggest that the energetics that determines discharge-product shape is clearly affected by the applied current. This interaction needs to be probed more deeply from a theoretical standpoint; some work in that direction has been presented by Horstmann et al.\cite{Horstmann2013rate}
+
+The exact mechanism of charge transport through solid Li$_2$O$_2$ (if bulk Li$_2$O$_2$ supports any appreciable current at all) is still debated,\cite{Viswanathan2011,Radin2013} and the reaction pathway by which Li$_2$O$_2$ is created is also under discussion.\cite{Laoire2010,Peng2011,Viswanathan2011,Xu2011mech,Leskes2013} Data about the rate-dependent morphology and distribution of Li$_2$O$_2$ particles are relevant to both topics.
+
+At all rates, the particles observed with SEM exhibit at least one characteristic dimension that is too large for electron transport via tunneling.\cite{Viswanathan2011} A few alternative mechanisms for charge transport have been put forward to explain such large characteristic particle sizes. Adams et al.\cite{Adams2013} suggest that the observed large particle sizes can be justified by a peroxide-formation mechanism that progresses through a LiO2 intermediate, which may be soluble in the solution to an extent that allows it to react at the electrode and diffuse a significant distance before depositing as Li$_2$O$_2$. Some studies have proposed charge-conduction mechanisms by which electrons travel through amorphous Li$_2$O$_2$\cite{TianF2014} or through crystalline Li$_2$O$_2$ along the surface,\cite{Radin2011} along grain boundaries,\cite{GengW2013} or through bulk defects.\cite{Radin2013} 
+
+Two of the proposed mechanisms for the formation of Li$_2$O$_2$ are: i) reaction/dissolution, where soluble lithium superoxide forms at the pore surfaces within the electrodes, diffuses within pore-filling liquid, and reacts chemically to precipitate on peroxide surfaces\cite{Peng2011} and ii) an electrochemical deposition, where Li$_2$O$_2$ nucleates on the pore surface through a LiO2 intermediate and propagates through additional charge exchange at the Li$_2$O$_2$ surface.\cite{Peng2011} For the reaction/dissolution mechanism, a chemical deposition process involving neutral species would appear to be the mechanism that controls the dimensions of the Li$_2$O$_2$ particles; in this case, the increase in surface-to-volume ratio with rate could be attributable to a higher supersaturation of the precipitating neutral species in the liquid phase when the intermediate is produced at higher rate, and/or the surface-diffusion rate of those species on existing Li$_2$O$_2$ particles.  Alternatively, if the particles form by an electrochemical process, the sizes and shapes of electro-deposits would be expected to change directly in response to the local kinetic overpotential, which propagating particles maximize by increasing their surface-to-volume ratios, which allows higher rates of mass transfer to the electrodeposit by shortening the diffusion lengths of species in the liquid phase.\cite{Monroe2004} Thus the observation of highly current-dependent morphology presented in Figure \ref{sem} supports the notions that either particle growth occurs by locally mass-transfer-limited processes (such as nucleation and diffusion) involving neutral species, or by a  locally mass-transfer-limited electrochemical mechanism; either mechanism can rationalize the significant variation in particle morphology as rate increases. 
+
+The processes that control discharge-product morphology can be further elucidated by examining Figure \ref{partschematic}. The shape of the Li$_2$O$_2$ formed at 0.1 mAcm$^{-2}$ is similar to the equilibrium Wulff constructions predicted in the literature,\cite{Mo2011,Radin2012} although all but the {0001} faces appear to be roughened in the SEM images. Note that the surface-to-volume ratios of the particles rise monotonically with rising discharge current, a trend supporting the assertion that non-equilibrium energetics (either owing to supersaturation of a dissolved neutral intermediate or shape-dependent overpotential) is a significant factor that determines product shapes. Either of these mechanisms is consistent with the classical theory of nucleation and growth in electrodeposition.\cite{Barton1962,Diggle}
+
+Non-equilibrium surface energetics controls both the shapes and sizes of particles, as reflected by the changes in surface-to-volume ratio with current. Since the particle diameter was found to be relatively constant with respect to rate for the three lowest discharge currents, it appears that in the low-current limit, the growth perpendicular to the flat face is slowest in response to the overpotential, while growth perpendicular to the curved interface is sufficiently fast to reach its equilibrium curvature regardless of the local potential environment. At the highest current, however, the qualitative shape of the Li$_2$O$_2$ changes entirely, suggesting that the overpotential is sufficiently large that the curved interface also changes shape.
+
+XRD results serve primarily to ensure that most of the electrochemical and microscopic information can be attributed to the production of Li$_2$O$_2$. It remains, however, to consider the origins of the stria evident on particles formed at the lowest two rates (cf. Figure \ref{sem}). XRD spectra show a characteristic crystallite size of about 20 nm that stays constant with respect to discharge rate, consistent with the spacing of the stria.
+
+\section{Conclusions}
+
+There is a growing awareness in the literature that the efficiency of the oxygen-evolution/charging process in Li/O$_2$ batteries can depend on the structure of the phase that is being decomposed. To understand the high overpotentials typical of recharge, it is important to understand the morphology of the Li$_2$O$_2$ phase formed during the preceding discharge, and how that morphology is affected by operating conditions.  The present study quantifies these relationships by investigating how the average discharge capacity and product-particle morphology in Li/O$_2$ cells vary with their discharge rates.
+
+This investigation also clarifies several aspects of electrochemical experimental control. Systematic experiments were performed using porous positive electrodes without particulate additives, coatings, or binders, which were discharged at superficial current densities consistent with the needs for automotive applications. A steep decrease in discharge capacity with discharge rate was observed, consistent with the notion that macroscopic transport processes control capacity in this current regime. When macroscopic transport is limiting, superficial current density likely correlates better with discharge capacity than current densities normalized in other ways. 
+
+A statistically significant measured Peukert exponent of 1.6±0.1 also highlights the poor rate performance of state-of-the-art Li/O$_2$ cells in comparison to other precipitation/dissolution chemistries. The scaling law observed can be rationalized by a hypothesis that a lowering of oxygen penetration depth in the positive electrode (decrease in electrode utilization) with increasing discharge rate is the dominant capacity-limiting factor. 
+
+SEM was performed using a novel air-free sample-transfer technique, which prevented samples from being exposed to air before vacuum was drawn in the microscope chamber. Performing dozens of repeated independent first discharges allowed the characteristic dimensions of the Li$_2$O$_2$ particles formed during an average first discharge to be established with a high degree of statistical certainty. The Li$_2$O$_2$ was found to deposit as disks (‘toroids’) at lower rates, with a constant radius and a variable height; particles formed at lower rates appear to comprise stacked 20 nm layers of fixed diameter. Even at the highest rate, the discharge product phase was observed to have a particulate, rather than a compact, structure. Needle-like shapes with very small characteristic dimensions form at 1 mAcm$^{-2}$. There is a stark difference in product morphology at the highest rate: the surface-to-volume ratio of the needles is an order of magnitude greater than the disks, and the number of needles formed is two orders of magnitude greater than the typical number of disks.
+
+The surface-area-to-volume ratio of discharge-product particles increases dramatically with increasing rate, suggesting that Li¬2O2 forms by a locally mass-transport-limited nucleation and growth mechanism. This is consistent with the notion that the interfacial energy of deposited Li$_2$O$_2$ varies with the discharge rate, either in response to the local overpotential environment, or in response to the concentration fields of reactants and/or reactant intermediates.
+	
+
+
+\bibliography{./tex/LiObib.bib}
+\bibliographystyle{abbrv}
+\end{document}
