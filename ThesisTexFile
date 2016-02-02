@@ -11,7 +11,7 @@
 \department{Chemical Engineering}
 
 % Year of completion
-\year=???
+\year=2015
 
 % Frontispiece
 \frontispiece{\includegraphics[width=4in]{./pics/frontispiece.pdf}}
@@ -154,7 +154,7 @@ This has proven to be a very accurate and effective model for describing the dif
 concentrated solution theory, maybe value of continuum modeling?
 
 
-\chapter{Experimental Methods} label{chap:Exp}
+\chapter{Experimental Methods} \label{chap:Exp}
 
 \section{Materials}
 
@@ -217,7 +217,7 @@ Non-aqueous Li/O$_{2}$ cells ideally discharge by the reduction of oxygen to for
 
 There are many reports of discharged Li/O$_2$ cells whose positive electrodes contain electrodeposited Li$_2$O$_2$ particles with a ‘toroid’-like morphology; the toroids typically have characteristic dimensions of the order of 100 nm.\cite{Mitchell2011,DXu2012,Adams2013a,XuJ2013,Gallant2013,XiaC2014evo} Since Li$_2$O$_2$ is a bulk insulator that in principle should prevent electrons from traveling such distances,\cite{Radin2013} the observations suggest that unconventional electron-transport pathways or diffusion of intermediates may play roles in the discharge process. For example, mechanisms by which charge could travel through amorphous Li$_2$O$_2$\cite{TianF2014} or across crystalline Li$_2$O$_2$ via its surface,\cite{Radin2011} grain boundaries,\cite{GengW2013} or defects in its bulk\cite{Radin2013} have been proposed. Studies also show that the morphology of Li$_2$O$_2$ deposited on a porous-carbon positive electrode can change when additives are incorporated.\cite{XuJ2013,YilmazE2013} Adams et al. provided a detailed set of hypotheses to rationalize how discharge-product morphology depends on discharge rate.\cite{Adams2013a} They observed that the Li$_2$O$_2$ morphology transitioned from toroids to a compact film as the discharge-current density increased; they also noted that capacity remained relatively stable until a critical rate was reached, above which the capacity substantially deteriorated.
 
-Although. a few studies highlight challenges related to the rate performance of Li/O$_2$ cells and cell design, research in this direction has received relatively little attention.\cite{LuY2013} For example, Adams et al.\cite{Adams2013} fabricated a bipolar-plate battery design aimed at meeting various goals set by the U.S. Advanced Battery Consortium;\cite{USABCGoals} their testing, which explored discharge currents up to 4 mAcm$^{-2}$ (per superficial electrode area), suggests that current densities of the order of 1 mAcm$^{-2}$ could be required in practice. Lu et al. fabricated extremely thin electrodes, with the aims of mitigating mass-transport limitations and allowing higher current densities.\cite{LuY2011rate} They discharged their cells at up to 0.76 mAcm$^{-2}$ superficial positive-electrode area. Jung et al. achieved one hundred cycles at rates of $\pm$1 mAcm$^{-2}$ by limiting the depth of discharge, and also demonstrated comparable capacity at $\pm$3 mAcm$^{-2}$.\cite{JungH2012} 
+Although a few studies highlight challenges related to the rate performance of Li/O$_2$ cells and cell design, research in this direction has received relatively little attention.\cite{LuY2013} For example, Adams et al.\cite{Adams2013} fabricated a bipolar-plate battery design aimed at meeting various goals set by the U.S. Advanced Battery Consortium;\cite{USABCGoals} their testing, which explored discharge currents up to 4 mAcm$^{-2}$ (per superficial electrode area), suggests that current densities of the order of 1 mAcm$^{-2}$ could be required in practice. Lu et al. fabricated extremely thin electrodes, with the aims of mitigating mass-transport limitations and allowing higher current densities.\cite{LuY2011rate} They discharged their cells at up to 0.76 mAcm$^{-2}$ superficial positive-electrode area. Jung et al. achieved one hundred cycles at rates of $\pm$1 mAcm$^{-2}$ by limiting the depth of discharge, and also demonstrated comparable capacity at $\pm$3 mAcm$^{-2}$.\cite{JungH2012} 
 
 A viable vehicular battery must retain its performance at higher rates. Consequently, more work is needed to understand the properties of Li/O$_2$ batteries operated at high current densities. In addition to the aforementioned effects on capacity and Li$_2$O$_2$ morphology, there is evidence that higher rates of discharge result in lower overpotentials during recharging.\cite{Adams2013a,Gallant2013} Hence discharge rate may ultimately control not only the capacity, but also the round-trip efficiency of a Li/O$_2$ battery. This paper explores the capacity of Li/O$_2$ cells and morphology of Li$_2$O$_2$ at the end of first discharge in the practically significant 0.1 to 1 mAcm$^{-2}$ superficial current-density range. Cell capacity is found to fall with a power-law dependence on current across these rates. Understanding this response, which can be associated with a Peukert’s-law\cite{Peukert1897} exponent of 1.6$\pm$0.1, could aid the engineering of cells with better rate performance.
 
